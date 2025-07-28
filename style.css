@@ -74,7 +74,9 @@ body{
 
 .win{
   font-size: 50px;
-  color: crimson;
+  background: linear-gradient(45deg, #ffd700, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: none;
 
 }

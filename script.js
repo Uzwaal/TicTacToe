@@ -33,10 +33,20 @@ boxes.forEach((box) =>{
     });
 });
 
-const showWinner = (winner) => {
-    winPatterns.innerHTML= `Congratulations, winner is ${winner}`;
-    newgame.classList.remove("hide");
+
+const disableKeys = () =>{
+    for(let box of boxes){
+        box.disabled=true;
+    }
+
 }
+
+
+const showWinner = (winnerName) => {
+    winner.innerHTML = `Congratulations, winner is ${winnerName}`;
+    winner.style.display = "block";
+    disableKeys();
+};
 
 const checkWinner = () => {
     for(let pattern of winPatterns){
