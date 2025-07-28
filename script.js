@@ -7,6 +7,13 @@ let button = document.querySelector(".btn");
 
 
 let turnO=true;
+const resetGame = () => {
+     turnO=true;
+    enableBoxes();
+    //winner.classList.add("hide");
+    winner.style.display = "none";
+    newgame1.style.display = "none";
+}
 const winPatterns=[
     [0,1,2],
     [0,3,6],
@@ -34,9 +41,17 @@ boxes.forEach((box) =>{
 });
 
 
-const disableKeys = () =>{
+const disableBoxes = () =>{
     for(let box of boxes){
         box.disabled=true;
+    }
+
+}
+
+const enableBoxes = () =>{
+    for(let box of boxes){
+        box.disabled=false;
+        box.innerHTML="";
     }
 
 }
@@ -45,7 +60,8 @@ const disableKeys = () =>{
 const showWinner = (winnerName) => {
     winner.innerHTML = `Congratulations, winner is ${winnerName}`;
     winner.style.display = "block";
-    disableKeys();
+    disableBoxes();
+    newgame1.style.display = "flex";
 };
 
 const checkWinner = () => {
@@ -62,3 +78,7 @@ const checkWinner = () => {
         }
     }
 };
+
+
+button.addEventListener("click", resetGame);
+newgame.addEventListener("click", resetGame);
